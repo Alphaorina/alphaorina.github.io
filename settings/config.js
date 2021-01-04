@@ -27,7 +27,7 @@ window.Config = {
         "Creative",
         "Enthusiastic",
         "Smart",
-        "Alpha Orina".
+        "Alpha Orina."
     ],
 
     /*
