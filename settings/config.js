@@ -26,7 +26,7 @@ window.Config = {
     introTypingTexts: [ // Set of texts to display in Typing Texts module
         "Creator",
         "Leader",
-        "Technical manager and Tech Enthusiast",
+        "Tech Enthusiast",
         "Student of Life."
     ],
 
