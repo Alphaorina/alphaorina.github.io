@@ -22,12 +22,12 @@ window.Config = {
     /**
      * Typing Texts module configuration
      */
-    introStaticText: "I'm", // Static text
+    introStaticText: "I'm a", // Static text
     introTypingTexts: [ // Set of texts to display in Typing Texts module
-        "Creative",
-        "Enthusiastic",
-        "Smart",
-        "Alpha Orina."
+        "Creator",
+        "Leader",
+        "Student of Life",
+        "Collaborator"
     ],
 
     /*
