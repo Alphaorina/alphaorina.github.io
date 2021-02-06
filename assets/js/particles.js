@@ -73,7 +73,7 @@ var pJS = function(tag_id, params){
       },
       move: {
         enable: true,
-        speed: 2,
+        speed: 6,
         direction: 'none',
         random: false,
         straight: false,
@@ -95,7 +95,7 @@ var pJS = function(tag_id, params){
           mode: 'grab'
         },
         onclick: {
-          enable: true,
+          enable: false,
           mode: 'push'
         },
         resize: true
@@ -109,8 +109,8 @@ var pJS = function(tag_id, params){
         },
         bubble:{
           distance: 200,
-          size: 80,
-          duration: 0.4
+          size: 40,
+          duration: 2
         },
         repulse:{
           distance: 200,
