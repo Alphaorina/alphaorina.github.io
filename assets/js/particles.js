@@ -111,8 +111,7 @@ var pJS = function(tag_id, params){
           distance: 200,
           size: 40,
           duration: 2
-          opacity:8,
-          speed:1
+          
         },
         repulse:{
           distance: 200,
