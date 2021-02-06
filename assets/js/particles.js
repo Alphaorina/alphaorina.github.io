@@ -20,20 +20,20 @@ var pJS = function(tag_id, params){
     },
     particles: {
       number: {
-        value: 400,
+        value: 80,
         density: {
           enable: true,
-          value_area: 800
+          value_area: 700
         }
       },
       color: {
-        value: '#fff'
+        value: '#333'
       },
       shape: {
         type: 'circle',
         stroke: {
           width: 0,
-          color: '#ff0000'
+          color: '#333'
         },
         polygon: {
           nb_sides: 5
@@ -45,30 +45,30 @@ var pJS = function(tag_id, params){
         }
       },
       opacity: {
-        value: 1,
+        value: 0.5,
         random: false,
         anim: {
           enable: false,
-          speed: 2,
-          opacity_min: 0,
+          speed: 1,
+          opacity_min: 0.1,
           sync: false
         }
       },
       size: {
-        value: 20,
+        value: 10,
         random: false,
         anim: {
           enable: false,
-          speed: 20,
-          size_min: 0,
+          speed: 40,
+          size_min: 0.1,
           sync: false
         }
       },
       line_linked: {
         enable: true,
-        distance: 100,
-        color: '#fff',
-        opacity: 1,
+        distance: 150,
+        color: '#333',
+        opacity: 0.4,
         width: 1
       },
       move: {
@@ -81,8 +81,8 @@ var pJS = function(tag_id, params){
         bounce: false,
         attract: {
           enable: false,
-          rotateX: 3000,
-          rotateY: 3000
+          rotateX: 600,
+          rotateY: 1200
         }
       },
       array: []
@@ -102,15 +102,17 @@ var pJS = function(tag_id, params){
       },
       modes: {
         grab:{
-          distance: 100,
+          distance: 140,
           line_linked:{
-            opacity: 1
+            opacity:8 
           }
         },
         bubble:{
           distance: 200,
           size: 40,
           duration: 2
+          opacity:8,
+          speed:1
         },
         repulse:{
           distance: 200,
@@ -125,7 +127,7 @@ var pJS = function(tag_id, params){
       },
       mouse:{}
     },
-    retina_detect: false,
+    retina_detect: true,
     fn: {
       interact: {},
       modes: {},
