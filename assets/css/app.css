@@ -854,6 +854,10 @@ body,
   height: 100%;
   width: 100%;
 }
+#alpha{
+	width:100%; 
+	height:auto;
+}
 
 body {
   font-family: "Raleway", sans-serif;
