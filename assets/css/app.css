@@ -857,6 +857,8 @@ body,
 #alpha{
 	width:100%; 
 	height:auto;
+	margin: 10px auto 20px;
+    display: block;
 }
 
 body {
