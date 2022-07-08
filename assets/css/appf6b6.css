@@ -1321,7 +1321,7 @@ blockquote {
 }
 
 .Navigation__bar .navbar-brand {
-  padding: 10px 0 0 0px;
+  padding: -20px 0 0 0px;
 }
 
 .Navigation--scrolled .Navigation__bar {
