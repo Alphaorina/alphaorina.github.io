@@ -16,28 +16,29 @@
 	
 	<meta name="p:domain_verify" content="7e90ff942efe15746c863ee1aa7fdeee"/>
     <style>
-	.black-white-theme {
-  background-color: black;
-  color: white;
-}
-
-.white-text {
-  color: white;
-}
-
-.black-white-form input[type="text"],
-.black-white-form textarea {
+	.white-theme {
   background-color: white;
   color: black;
 }
 
-.black-white-form label {
+.white-theme .white-text {
   color: white;
 }
 
-.black-white-form .w3-button {
+.white-theme .black-white-form input[type="text"],
+.white-theme .black-white-form textarea {
   background-color: black;
   color: white;
+}
+
+.white-theme .black-white-form label {
+  color: black;
+}
+
+.white-theme .black-white-form .w3-button {
+  background-color: white;
+  color: black;
+
 }
 
 /* width */
@@ -512,18 +513,18 @@ Is a self-starter with a skill set in technical management and an experienced Te
         page_id="124781141270417">
       </div>
 				
-        <section id="Contact" class="black-white-theme">
+        <section id="Contact" class="white-theme">
            <div class="section--basic section--darker section-spacing">
     <div class="container text-center">
       <div class="headline white-text">
-        <h2>Contact me</h2>
+         <h2>Contact me</h2>
       </div>
       <div class="Contact pt-2">
         <div class="row">
           <div class="col-md-6 col-md-offset-1 col-sm-6" data-aos="fade">
             <script type="text/javascript">var submitted=false;</script>
             <iframe name="hidden_iframe" id="hidden_iframe" style="display: none;"
-              onload="if (submitted) {window.location='https://www.alphaorina.works/index.html'; alert('Thank you for your message! We have received it.');}"></iframe>
+              onload="if (submitted) {window.location='https://www.alphaorina.tech/index.html'; handleResponse();}"></iframe>
             <form class="black-white-form"
               action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSf7GDHOFq52C32mX_qX7YwDUSgeWppunye1DCag3WQ9WJc42g/formResponse"
               method="post" target="hidden_iframe" onsubmit="submitted=true;">
@@ -554,6 +555,23 @@ Is a self-starter with a skill set in technical management and an experienced Te
       </div>
     </div>
   </div>
+  <script>
+  function handleResponse() {
+    const message = "Thank you for Contacting Dennis! He has gifted you 100 points!";
+    const interval = 50;
+    let counter = 0;
+    const displayMessage = () => {
+      if (counter <= message.length) {
+        document.getElementById("acknowledgment").innerHTML = message.slice(0, counter);
+        counter++;
+        setTimeout(displayMessage, interval);
+      }
+    };
+    displayMessage();
+  }
+</script>
+
+<p id="acknowledgment" style="display: none;"></p>
                             <div class="col-md-4 col-sm-6">
                                 <h4 data-aos="fade">I like making  internet friends,so if you are reading this then i'd love to meet if we're in the same city☺ </h4>
                                 <p data-aos="fade">I am always open for a cup of Coffee☕!</p>
