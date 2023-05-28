@@ -1602,29 +1602,5 @@ article .align-right {
     height: 12px;
     background-color: #3BA0F4;
 }
-.black-white-theme {
-  background-color: black;
-  color: white;
-}
-
-.white-text {
-  color: white;
-}
-
-.black-white-form input[type="text"],
-.black-white-form textarea {
-  background-color: white;
-  color: black;
-}
-
-.black-white-form label {
-  color: white;
-}
-
-.black-white-form .w3-button {
-  background-color: black;
-  color: white;
-}
-
 
  
