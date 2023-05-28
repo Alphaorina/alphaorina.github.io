@@ -664,5 +664,21 @@ Is a self-starter with a skill set in technical management and an experienced Te
 		</body>
 
 <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+<script>
+  function handleResponse() {
+    const message = "Thank you for Contacting Dennis! He has gifted you 100 points!";
+    const interval = 50;
+    let counter = 0;
+    const displayMessage = () => {
+      if (counter <= message.length) {
+        document.getElementById("acknowledgment").innerHTML = message.slice(0, counter);
+        counter++;
+        setTimeout(displayMessage, interval);
+      }
+    };
+    displayMessage();
+  }
+</script>
+
 
 </html>
