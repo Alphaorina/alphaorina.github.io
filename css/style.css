@@ -73,8 +73,8 @@ header .navbar {
 }
 
 .navbar-brand img {
-    height: 50px; /* Adjust this value to set the height of the logo */
-    margin-top: 10px; /* Adjust this value to position the logo vertically */
+    height: 25px; /* Adjust this value to set the height of the logo */
+    margin-top: 5px; /* Adjust this value to position the logo vertically */
 }
 
 .navbar-default .navbar-brand {
