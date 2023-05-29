@@ -185,7 +185,7 @@ header .nav li .dropdown-menu li a {
     line-height: 28px;
     padding: 3px 12px;
 }
-#myBtn {
+myBtn {
   display: none;
   position: fixed;
   bottom: 20px;
@@ -201,7 +201,7 @@ header .nav li .dropdown-menu li a {
   border-radius: 4px;
 }
 
-#myBtn:hover {
+myBtn:hover {
   background-color: #555;
 }
 
