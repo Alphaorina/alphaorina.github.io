@@ -60,6 +60,21 @@ img.img-polaroid {
 }
 /*  Header
 ==================================== */
+/* Add this to your CSS file */
+@media screen and (max-width: 767px) {
+    .navbar-header {
+        float: left;
+        width: 100%;
+    }
+    
+    .navbar-brand {
+        float: left;
+    }
+    
+    .navbar-brand img {
+        margin-top: 10px;
+    }
+}
 
 header .navbar {
     margin-bottom: 0;
