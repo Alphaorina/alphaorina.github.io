@@ -465,16 +465,20 @@ Is a self-starter with a skill set in technical management and an experienced Te
                         <script type="text/javascript">
                             var submitted = false;
                             function showConfirmation() {
-                                const confirmation = document.getElementById('confirmation-message');
-                                confirmation.style.display = 'block';
+                                // Show the confirmation popup
+                                const confirmationPopup = document.getElementById('lion-confirmation-popup');
+                                confirmationPopup.style.display = 'block';
                                 setTimeout(() => {
-                                    confirmation.style.opacity = '1';
+                                    confirmationPopup.style.opacity = '1';
                                 }, 100);
+                                
+                                // Clear the form fields
+                                document.getElementById("contactForm").reset();
                             }
                         </script>
                         <iframe name="hidden_iframe" id="hidden_iframe" style="display: none;"
                             onload="if (submitted) { showConfirmation(); }"></iframe>
-                        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSf7GDHOFq52C32mX_qX7YwDUSgeWppunye1DCag3WQ9WJc42g/formResponse"
+                        <form id="contactForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSf7GDHOFq52C32mX_qX7YwDUSgeWppunye1DCag3WQ9WJc42g/formResponse"
                             method="post" target="hidden_iframe" onsubmit="submitted=true;"
                             style="background-color: #f9f9f9; padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);">
 
@@ -511,11 +515,6 @@ Is a self-starter with a skill set in technical management and an experienced Te
                                 <button class="w3-button w3-block w3-white w3-hover-dark" type="submit"
                                     style="border: 1px solid #333; padding: 12px 20px; transition: 0.3s ease; font-weight: 600;">SEND</button>
                             </div>
-
-                            <!-- Confirmation Message -->
-                            <div id="confirmation-message" style="display: none; opacity: 0; transition: opacity 0.5s ease; margin-top: 20px;">
-                                <p style="color: #28a745; font-size: 16px; text-align: center;">Your message has been successfully sent. I'll get back to you soon!</p>
-                            </div>
                         </form>
                     </div>
 
@@ -547,8 +546,18 @@ Is a self-starter with a skill set in technical management and an experienced Te
                 </div>
             </div>
         </div>
+
+        <!-- Futuristic Lion-Themed Confirmation Popup -->
+        <div id="lion-confirmation-popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            background-color: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 0 30px rgba(0, 0, 0, 0.2); z-index: 1000;
+            text-align: center; opacity: 0; transition: opacity 0.5s ease;">
+            <img src="assets/images/lion-logo.png" alt="Lion Logo" style="width: 100px; margin-bottom: 20px;">
+            <p style="font-size: 18px; font-weight: bold; color: #333;">Thank you for reaching out! Your message has been successfully sent. 🦁</p>
+            <button onclick="document.getElementById('lion-confirmation-popup').style.display='none';" style="padding: 10px 20px; background-color: #333; color: #fff; border: none; cursor: pointer; font-size: 16px; margin-top: 20px;">Close</button>
+        </div>
     </div>
 </section>
+
 
 
         <!-- ========================================= CONTACT SECTION :END ========================================= -->
