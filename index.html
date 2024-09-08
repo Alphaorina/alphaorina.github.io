@@ -452,81 +452,95 @@ Is a self-starter with a skill set in technical management and an experienced Te
         <!-- ========================================= TESTIMONIALS SECTION :END ========================================= -->
         
         <!-- ========================================= CONTACT SECTION ========================================= -->	
-  <section id="Contact" class="">
-    <div class="section--basic section--darker" style="background-color: #000; color: #fff;">
+ <section id="Contact" class="">
+    <div class="section--basic section--lighter" style="background-color: #fff; color: #333;">
         <div class="container">
             <div class="headline text-center" data-aos="fade-up" style="padding-bottom: 30px;">
-                <h2 class="display-4" style="font-family: 'Orbitron', sans-serif; letter-spacing: 2px;">Get in Touch</h2>
+                <h2 class="display-4" style="font-family: 'Roboto', sans-serif; font-weight: 300;">Contact Me</h2>
             </div>
             <div class="Contact pt-3">
                 <div class="row">
                     <!-- Contact Form -->
                     <div class="col-md-6 col-md-offset-1 col-sm-6" data-aos="fade-right">
-                        <script type="text/javascript">var submitted=false;</script>
+                        <script type="text/javascript">
+                            var submitted = false;
+                            function showConfirmation() {
+                                const confirmation = document.getElementById('confirmation-message');
+                                confirmation.style.display = 'block';
+                                setTimeout(() => {
+                                    confirmation.style.opacity = '1';
+                                }, 100);
+                            }
+                        </script>
                         <iframe name="hidden_iframe" id="hidden_iframe" style="display: none;"
-                            onload="if (submitted) {window.location='https://www.alphaorina.works/index.html';}"></iframe>
+                            onload="if (submitted) { showConfirmation(); }"></iframe>
                         <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSf7GDHOFq52C32mX_qX7YwDUSgeWppunye1DCag3WQ9WJc42g/formResponse"
-                            method="post" target="hidden_iframe" onsubmit="return validateForm();" 
-                            style="background-color: #111; padding: 20px; border-radius: 10px; box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);">
+                            method="post" target="hidden_iframe" onsubmit="submitted=true;"
+                            style="background-color: #f9f9f9; padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);">
 
                             <!-- Name Input -->
-                            <div class="w3-section">
-                                <label style="color: #ccc;"><b>Name</b></label>
+                            <div class="w3-section" style="margin-bottom: 20px;">
+                                <label style="color: #333; font-weight: 500;">Name</label>
                                 <input class="w3-border w3-input" type="text" placeholder="Your Name" id="name" required name="entry.2005620554"
-                                    style="background-color: transparent; color: #fff; border-color: #555;">
+                                    style="background-color: #fff; color: #333; border: 1px solid #ccc; padding: 10px; width: 100%;">
                             </div>
 
                             <!-- Email Input -->
-                            <div class="w3-section">
-                                <label style="color: #ccc;">Email</label>
+                            <div class="w3-section" style="margin-bottom: 20px;">
+                                <label style="color: #333; font-weight: 500;">Email</label>
                                 <input class="w3-border w3-input" type="email" placeholder="Your Email" id="email" required name="entry.1045781291"
-                                    style="background-color: transparent; color: #fff; border-color: #555;">
+                                    style="background-color: #fff; color: #333; border: 1px solid #ccc; padding: 10px; width: 100%;">
                             </div>
 
                             <!-- Subject Input -->
-                            <div class="w3-section">
-                                <label style="color: #ccc;">Subject</label>
+                            <div class="w3-section" style="margin-bottom: 20px;">
+                                <label style="color: #333; font-weight: 500;">Subject</label>
                                 <input class="w3-border w3-input" type="text" placeholder="Subject" id="subject" required name="entry.1065046570"
-                                    style="background-color: transparent; color: #fff; border-color: #555;">
+                                    style="background-color: #fff; color: #333; border: 1px solid #ccc; padding: 10px; width: 100%;">
                             </div>
 
                             <!-- Comment Input -->
-                            <div class="w3-section">
-                                <label style="color: #ccc;">Comment</label>
+                            <div class="w3-section" style="margin-bottom: 20px;">
+                                <label style="color: #333; font-weight: 500;">Comment</label>
                                 <textarea class="w3-border w3-input" placeholder="Your Message" id="comment" required name="entry.839337160"
-                                    style="background-color: transparent; color: #fff; border-color: #555; height: 120px;"></textarea>
+                                    style="background-color: #fff; color: #333; border: 1px solid #ccc; padding: 10px; width: 100%; height: 120px;"></textarea>
                             </div>
 
                             <!-- Submit Button -->
                             <div class="w3-section text-center">
-                                <button class="w3-button w3-black w3-hover-white w3-margin-bottom" type="submit"
-                                    style="border: 2px solid #fff; transition: 0.3s ease;">SEND</button>
+                                <button class="w3-button w3-block w3-white w3-hover-dark" type="submit"
+                                    style="border: 1px solid #333; padding: 12px 20px; transition: 0.3s ease; font-weight: 600;">SEND</button>
+                            </div>
+
+                            <!-- Confirmation Message -->
+                            <div id="confirmation-message" style="display: none; opacity: 0; transition: opacity 0.5s ease; margin-top: 20px;">
+                                <p style="color: #28a745; font-size: 16px; text-align: center;">Your message has been successfully sent. I'll get back to you soon!</p>
                             </div>
                         </form>
                     </div>
 
                     <!-- Contact Information -->
-                    <div class="col-md-4 col-sm-6 text-center" data-aos="fade-left" style="font-family: 'Roboto Mono', monospace;">
-                        <h4 style="font-family: 'Orbitron', sans-serif;">Let's Connect!</h4>
-                        <p>Open for a cup of coffee ☕ or a virtual chat.</p>
+                    <div class="col-md-4 col-sm-6 text-center" data-aos="fade-left" style="font-family: 'Roboto', sans-serif;">
+                        <h4 style="font-weight: 300;">Let's Connect</h4>
+                        <p style="margin-bottom: 20px;">Open for a cup of coffee ☕ or a chat.</p>
                         <div class="Contact__details" style="margin-top: 30px;">
                             <!-- Phone -->
                             <div class="Contact__detail" data-aos="fade" style="margin-bottom: 20px;">
-                                <i class="fa fa-phone" style="color: #fff;"></i>
-                                <a href="tel:+36706578201" style="color: #fff; text-decoration: none;"> +36 70 657 8201</a>
+                                <i class="fa fa-phone" style="color: #333;"></i>
+                                <a href="tel:+36706578201" style="color: #333; text-decoration: none;"> +36 70 657 8201</a>
                             </div>
                             <!-- Email -->
                             <div class="Contact__detail" data-aos="fade" style="margin-bottom: 20px;">
-                                <i class="fa fa-envelope" style="color: #fff;"></i>
-                                <a href="mailto:dennisolondo@gmail.com" style="color: #fff; text-decoration: none;"> dennisolondo@gmail.com</a>
+                                <i class="fa fa-envelope" style="color: #333;"></i>
+                                <a href="mailto:dennisolondo@gmail.com" style="color: #333; text-decoration: none;"> dennisolondo@gmail.com</a>
                             </div>
                             <!-- Working Hours -->
                             <div class="Contact__detail" data-aos="fade" style="margin-bottom: 20px;">
-                                <i class="fa fa-clock-o" style="color: #fff;"></i> Mon-Fri 7:00AM - 6:00PM
+                                <i class="fa fa-clock-o" style="color: #333;"></i> Mon-Fri 7:00AM - 6:00PM
                             </div>
                             <!-- Location -->
                             <div class="Contact__detail" data-aos="fade">
-                                <i class="fa fa-map-marker" style="color: #fff;"></i> Budapest, Hungary
+                                <i class="fa fa-map-marker" style="color: #333;"></i> Budapest, Hungary
                             </div>
                         </div>
                     </div>
@@ -535,6 +549,7 @@ Is a self-starter with a skill set in technical management and an experienced Te
         </div>
     </div>
 </section>
+
 
         <!-- ========================================= CONTACT SECTION :END ========================================= -->
         
