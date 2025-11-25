@@ -134,8 +134,6 @@
         <!-- ========================================= INTRO SECTION ========================================= -->
         <div class="Intro Intro--single-photo" id="Intro" style="background-image: url(assets/images/intro3.jpg)">
             <div id="particles-js"></div>
-		<script src="js/app.js"></script>
-		<script src="../particles.js"></script>
             <intro-typing></intro-typing>
             <start-arrow text="Scroll down"></start-arrow>
         </div>
@@ -569,13 +567,19 @@
     <!-- Particles.js module file -->
     <script src="assets/js/particles.js" defer></script>
     <script defer src="assets/js/site-utils.js"></script>
-		
-    <!-- Particles.js initiation -->
+	
+    <!-- Particles.js initiation (wait for particles.js to load via defer) -->
     <script>
-        particlesJS.load('particles-js', 'settings/particles-config.json');
-    </script>
-
-        <!-- Non-critical third-party scripts: loaded after interaction or idle to avoid blocking -->
+        // Ensure particlesJS is available before initializing
+        (function initParticles(){
+            if(typeof particlesJS !== 'undefined'){
+                particlesJS.load('particles-js', 'settings/particles-config.json');
+            } else {
+                // If particles.js hasn't loaded yet, retry after a short delay
+                setTimeout(initParticles, 100);
+            }
+        })();
+    </script>        <!-- Non-critical third-party scripts: loaded after interaction or idle to avoid blocking -->
         <script>
             window.__thirdPartyScripts = window.__thirdPartyScripts || [];
             // SimpleAnalytics (analytics)
