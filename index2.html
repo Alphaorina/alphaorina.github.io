@@ -164,22 +164,60 @@
 			<a href=""></a>
 			<h3 style="text-align: center;">Book a session with me</h3>
 
-			<form id="contact-form">
+			<!-- Hidden iframe target + confirmation logic (mirrors index.html behavior) -->
+			<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){ showConfirmation(); }"></iframe>
+			<script type="text/javascript">
+				var submitted = false;
+				function showConfirmation(){
+					// simple confirmation modal (reuses index style)
+					var popup = document.getElementById('lion-confirmation-popup-idx2');
+					if(popup){ popup.style.display = 'block'; setTimeout(function(){ popup.style.opacity = '1'; }, 100); }
+					try{ document.getElementById('contact-form').reset(); }catch(e){}
+				}
+			</script>
+
+			<form id="contact-form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSf7GDHOFq52C32mX_qX7YwDUSgeWppunye1DCag3WQ9WJc42g/formResponse" method="post" target="hidden_iframe" onsubmit="return handleFormSubmitIdx2(event);" style="max-width:600px; margin:0 auto;">
 				<a name="contact"></a>
 
 				<label>Name</label>
-				<input class="input-field" type="text" name="name">
-
-			
+				<input class="input-field" type="text" name="entry.2005620554" id="name" required>
 
 				<label>Email</label>
-				<input class="input-field" type="text" name="email">
+				<input class="input-field" type="email" name="entry.1045781291" id="email" required>
 
 				<label>Message</label>
-				<textarea class="input-field" name="message"></textarea>
+				<textarea class="input-field" name="entry.839337160" id="message" required></textarea>
 
 				<input id="submit-btn" type="submit" value="Send">
 			</form>
+
+			<!-- Confirmation popup (index-style) -->
+			<div id="lion-confirmation-popup-idx2" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 0 30px rgba(0,0,0,0.2); z-index: 1000; text-align: center; opacity: 0; transition: opacity 0.5s ease;">
+				<img src="assets/images/lion-logo.png" alt="Lion Logo" style="width: 80px; margin-bottom: 14px;">
+				<p style="font-size: 16px; font-weight: bold; color: #333;">Thank you — your message has been sent.</p>
+				<button onclick="document.getElementById('lion-confirmation-popup-idx2').style.display='none'; document.getElementById('lion-confirmation-popup-idx2').style.opacity='0';" style="padding:8px 14px; background:#333; color:#fff; border:none; cursor:pointer; margin-top:12px;">Close</button>
+			</div>
+			<script>
+				// UX: immediate feedback for index2 form submission
+				function handleFormSubmitIdx2(e){
+					try{
+						submitted = true;
+						var btn = document.getElementById('submit-btn');
+						if(btn){ btn.disabled = true; btn.dataset.orig = btn.value; btn.value = 'Sending...'; }
+						setTimeout(function(){ if(btn && btn.disabled){ btn.disabled = false; btn.value = btn.dataset.orig || 'Send'; } }, 12000);
+					}catch(er){}
+					return true; // allow submission to hidden_iframe
+				}
+
+				// Re-enable and clear when confirmation appears
+				function showConfirmationIdx2(){
+					try{ var btn = document.getElementById('submit-btn'); if(btn){ btn.disabled = false; btn.value = btn.dataset.orig || 'Send'; } }catch(e){}
+					var popup = document.getElementById('lion-confirmation-popup-idx2'); if(popup){ popup.style.display='block'; setTimeout(function(){ popup.style.opacity='1'; },100); }
+					try{ document.getElementById('contact-form').reset(); }catch(e){}
+				}
+				// Connect iframe onload to showConfirmationIdx2
+				document.getElementById('hidden_iframe').addEventListener('load', function(){ if(window.submitted){ showConfirmationIdx2(); } });
+			</script>
 		</div>
 	</section> 
 

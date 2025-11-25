@@ -404,7 +404,7 @@
                         <iframe name="hidden_iframe" id="hidden_iframe" style="display: none;"
                             onload="if (submitted) { showConfirmation(); }"></iframe>
                         <form id="contactForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSf7GDHOFq52C32mX_qX7YwDUSgeWppunye1DCag3WQ9WJc42g/formResponse"
-                            method="post" target="hidden_iframe" onsubmit="submitted=true;"
+                            method="post" target="hidden_iframe" onsubmit="return handleFormSubmit(event);"
                             style="background-color: #f9f9f9; padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);">
 
                             <!-- Name Input -->
@@ -437,7 +437,7 @@
 
                             <!-- Submit Button -->
                             <div class="w3-section text-center">
-                                <button class="w3-button w3-block w3-white w3-hover-dark" type="submit"
+                                <button id="contact-submit-btn" class="w3-button w3-block w3-white w3-hover-dark" type="submit"
                                     style="border: 1px solid #333; padding: 12px 20px; transition: 0.3s ease; font-weight: 600;">SEND</button>
                             </div>
                         </form>
@@ -480,6 +480,40 @@
             <p style="font-size: 18px; font-weight: bold; color: #333;">Thank you for reaching out! Your message has been successfully sent. 🦁</p>
             <button onclick="document.getElementById('lion-confirmation-popup').style.display='none';" style="padding: 10px 20px; background-color: #333; color: #fff; border: none; cursor: pointer; font-size: 16px; margin-top: 20px;">Close</button>
         </div>
+        <script>
+            // Enhanced submit UX: show immediate "Sending...", disable button and provide timeout fallback
+            function handleFormSubmit(e){
+                try{
+                    submitted = true; // existing flag used by hidden_iframe onload
+                    var form = document.getElementById('contactForm');
+                    var btn = document.getElementById('contact-submit-btn');
+                    if(btn){
+                        btn.disabled = true;
+                        btn.dataset.orig = btn.innerHTML;
+                        btn.innerHTML = 'Sending...';
+                    }
+                    // Safety fallback: re-enable after 12s if no response
+                    setTimeout(function(){
+                        if(btn && btn.disabled){
+                            btn.disabled = false;
+                            btn.innerHTML = btn.dataset.orig || 'SEND';
+                        }
+                    }, 12000);
+                }catch(er){}
+                // let the form submit to hidden_iframe
+                return true;
+            }
+
+            // When confirmation is shown, reset UI and re-enable button
+            var _origShowConfirmation = window.showConfirmation;
+            window.showConfirmation = function(){
+                try{
+                    var btn = document.getElementById('contact-submit-btn');
+                    if(btn){ btn.disabled = false; btn.innerHTML = btn.dataset.orig || 'SEND'; }
+                }catch(e){}
+                if(typeof _origShowConfirmation === 'function') _origShowConfirmation();
+            };
+        </script>
     </div>
 </section>
 
