@@ -74,6 +74,25 @@
         @media (max-width: 420px){
             .Navigation__bar .navbar-brand img{ max-height: 34px; }
         }
+
+        /* Gamification animations for lion popup */
+        @keyframes confetti {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .confetti-particle {
+            position: fixed;
+            pointer-events: none;
+            font-size: 24px;
+            animation: confetti 2s ease-out forwards;
+        }
 	</style>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 <!-- Global site tag (gtag.js) - Google Analytics (UA deferred: loaded after interaction) -->
@@ -302,54 +321,9 @@
                 <h2>Latest blog posts</h2>
             </div>
 
-            <!-- First Row -->
-            <div class="row">
-                <div class="col-sm-4" data-aos="fade">
-                    <div class="Blog__post">
-                        <div class="Blog__post-image">
-                            <a href="https://dennisblog.super.site/uipath-polymorphismsharepoint-find-files"><img loading="lazy" src="assets/images/blog/polumorph.jpg" alt="UiPath-Polymorphism|SharePoint Find Files"></a>
-                        </div>
-                        <div class="Blog__post-caption">
-                            <a href="https://dennisblog.super.site/uipath-polymorphismsharepoint-find-files"><h4>UiPath-Polymorphism|SharePoint Find Files</h4></a>
-                            <ul class="Blog__post-categories">
-                                <li>Dennis,</li>
-                                <li>Orina</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                    <div class="col-sm-4" data-aos="fade">
-                        <div class="Blog__post">
-                            <div class="Blog__post-image">
-                                <a href="https://dennisblog.super.site/how-i-automate-my-reading-system"><img loading="lazy" src="assets/images/blog/Kindle.jpg" alt="How I automate my reading system"></a>
-                            </div>
-                            <div class="Blog__post-caption">
-                                <a href="https://dennisblog.super.site/how-i-automate-my-reading-system"><h4>How I automate my reading system</h4></a>
-                                <ul class="Blog__post-categories">
-                                    <li>Dennis,</li>
-                                    <li>Orina</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <div class="row">
-                <div class="col-sm-4" data-aos="fade">
-                    <div class="Blog__post">
-                        <div class="Blog__post-image">
-                            <a href="https://dennisblog.super.site/common-challenges-with-uipath-selectors-and-how-to-overcome-them"><img loading="lazy" src="assets/images/blog/robot.jpg" alt="Common Challenges with UiPath Selectors and How to Overcome Them"></a>
-                        </div>
-                        <div class="Blog__post-caption">
-                            <a href="https://dennisblog.super.site/common-challenges-with-uipath-selectors-and-how-to-overcome-them"><h4>Common Challenges with UiPath Selectors and How to Overcome Them</h4></a>
-                            <ul class="Blog__post-categories">
-                                <li>Dennis,</li>
-                                <li>Orina</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <!-- Blog Posts Row (populated dynamically) -->
+            <div class="row" id="blog-posts-container">
+                <!-- Blog posts will be inserted here by JavaScript -->
             </div>
 </section>
 
@@ -474,9 +448,9 @@
         <div id="lion-confirmation-popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
             background-color: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 0 30px rgba(0, 0, 0, 0.2); z-index: 1000;
             text-align: center; opacity: 0; transition: opacity 0.5s ease;">
-            <img src="assets/images/lion-logo.png" alt="Lion Logo" style="width: 100px; margin-bottom: 20px;">
+            <img id="lion-logo-img" src="assets/images/lion-logo.png" alt="Lion Logo" style="width: 100px; margin-bottom: 20px; display: block;">
             <p style="font-size: 18px; font-weight: bold; color: #333;">Thank you for reaching out! Your message has been successfully sent. 🦁</p>
-            <button onclick="document.getElementById('lion-confirmation-popup').style.display='none';" style="padding: 10px 20px; background-color: #333; color: #fff; border: none; cursor: pointer; font-size: 16px; margin-top: 20px;">Close</button>
+            <button onclick="closeLionPopup();" style="padding: 10px 20px; background-color: #333; color: #fff; border: none; cursor: pointer; font-size: 16px; margin-top: 20px; border-radius: 5px; transition: 0.2s ease;">Close</button>
         </div>
         <script>
             // Enhanced submit UX: show immediate "Sending...", disable button and provide timeout fallback
@@ -502,20 +476,203 @@
                 return true;
             }
 
-            // When confirmation is shown, reset UI and re-enable button
+            // Gamified confirmation popup with animations
+            function closeLionPopup(){
+                const popup = document.getElementById('lion-confirmation-popup');
+                if(popup){
+                    popup.style.opacity = '0';
+                    setTimeout(() => {
+                        popup.style.display = 'none';
+                    }, 300);
+                }
+            }
+
+            // Create confetti particles for celebration
+            function createConfetti(){
+                const emojis = ['🎉', '✨', '🚀', '⭐', '💪', '🔥', '👏', '🎊'];
+                for(let i = 0; i < 12; i++){
+                    const particle = document.createElement('div');
+                    particle.className = 'confetti-particle';
+                    particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = '50%';
+                    document.body.appendChild(particle);
+                    
+                    setTimeout(() => particle.remove(), 2000);
+                }
+            }
+
+            // Enhanced showConfirmation with gamification
             var _origShowConfirmation = window.showConfirmation;
             window.showConfirmation = function(){
                 try{
                     var btn = document.getElementById('contact-submit-btn');
                     if(btn){ btn.disabled = false; btn.innerHTML = btn.dataset.orig || 'SEND'; }
                 }catch(e){}
+                
+                // Show popup with confetti
+                const popup = document.getElementById('lion-confirmation-popup');
+                if(popup){
+                    popup.style.display = 'block';
+                    popup.style.opacity = '1';
+                    
+                    // Create confetti burst
+                    createConfetti();
+                }
+                
                 if(typeof _origShowConfirmation === 'function') _origShowConfirmation();
             };
+
+            // Theme Personalization System (for Contact Form Only)
+            // Color schemes for contact form
+            const themeColors = {
+                light: {
+                    formBg: '#f9f9f9',
+                    inputBg: '#fff',
+                    inputBorder: '#ccc',
+                    text: '#333',
+                    label: '#333',
+                    btnBg: '#fff',
+                    btnBorder: '#333',
+                    btnText: '#333',
+                    btnHover: '#333'
+                },
+                blue: {
+                    formBg: '#e3f2fd',
+                    inputBg: '#f1f8ff',
+                    inputBorder: '#90caf9',
+                    text: '#0d47a1',
+                    label: '#1565c0',
+                    btnBg: '#2196f3',
+                    btnBorder: '#1976d2',
+                    btnText: '#fff',
+                    btnHover: '#1565c0'
+                },
+                green: {
+                    formBg: '#e8f5e9',
+                    inputBg: '#f1f8f4',
+                    inputBorder: '#81c784',
+                    text: '#1b5e20',
+                    label: '#2e7d32',
+                    btnBg: '#4caf50',
+                    btnBorder: '#388e3c',
+                    btnText: '#fff',
+                    btnHover: '#2e7d32'
+                },
+                purple: {
+                    formBg: '#f3e5f5',
+                    inputBg: '#faf7fc',
+                    inputBorder: '#ce93d8',
+                    text: '#4a148c',
+                    label: '#6a1b9a',
+                    btnBg: '#9c27b0',
+                    btnBorder: '#7b1fa2',
+                    btnText: '#fff',
+                    btnHover: '#6a1b9a'
+                }
+            };
+
+            // Initialize theme on page load
+            document.addEventListener('DOMContentLoaded', function(){
+                let theme = localStorage.getItem('formTheme') || 'light';
+                applyFormTheme(theme);
+
+                // Attach click listeners to theme dots
+                let themeDots = document.getElementsByClassName('theme-dot');
+                for(var i = 0; i < themeDots.length; i++){
+                    themeDots[i].addEventListener('click', function(){
+                        let mode = this.dataset.mode;
+                        applyFormTheme(mode);
+                    });
+                }
+            });
+
+            // Apply color scheme to contact form only
+            function applyFormTheme(mode){
+                const colors = themeColors[mode] || themeColors['light'];
+                const contactForm = document.getElementById('contactForm');
+                
+                if(contactForm){
+                    // Form background
+                    contactForm.style.backgroundColor = colors.formBg;
+                    contactForm.style.transition = 'all 0.4s ease';
+                    
+                    // Update all labels
+                    const labels = contactForm.querySelectorAll('label');
+                    labels.forEach(label => {
+                        label.style.color = colors.label;
+                        label.style.fontWeight = '600';
+                    });
+                    
+                    // Update all inputs and textarea
+                    const inputs = contactForm.querySelectorAll('input, textarea');
+                    inputs.forEach(input => {
+                        input.style.backgroundColor = colors.inputBg;
+                        input.style.color = colors.text;
+                        input.style.borderColor = colors.inputBorder;
+                        input.style.transition = 'all 0.3s ease';
+                    });
+                    
+                    // Update submit button
+                    const submitBtn = document.getElementById('contact-submit-btn');
+                    if(submitBtn){
+                        submitBtn.style.backgroundColor = colors.btnBg;
+                        submitBtn.style.borderColor = colors.btnBorder;
+                        submitBtn.style.color = colors.btnText;
+                        submitBtn.style.transition = 'all 0.3s ease';
+                        submitBtn.onmouseover = function(){
+                            this.style.backgroundColor = colors.btnHover;
+                            this.style.opacity = '0.9';
+                        };
+                        submitBtn.onmouseout = function(){
+                            this.style.backgroundColor = colors.btnBg;
+                            this.style.opacity = '1';
+                        };
+                    }
+                }
+
+                // Highlight the active theme dot
+                try {
+                    let themeDots = document.getElementsByClassName('theme-dot');
+                    for(var i = 0; i < themeDots.length; i++){
+                        themeDots[i].style.transform = 'scale(1)';
+                        themeDots[i].style.boxShadow = 'none';
+                    }
+                    let activeThemeDot = document.getElementById(mode + '-mode');
+                    if(activeThemeDot){
+                        activeThemeDot.style.transform = 'scale(1.15)';
+                        activeThemeDot.style.boxShadow = '0 0 12px rgba(0, 0, 0, 0.25)';
+                    }
+                } catch(e){}
+
+                localStorage.setItem('formTheme', mode);
+            }
         </script>
     </div>
 </section>
 
-
+        <!-- Theme Personalization Section (Below Contact Me) -->
+        <div style="background-color: #f5f5f5; padding: 40px 0;">
+            <div class="container">
+                <div class="text-center">
+                    <h5 style="margin-bottom: 30px; color: #333; font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 18px;">Pick Your Vibe 🎨</h5>
+                    <div id="theme-options-wrapper" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                        <div data-mode="light" id="light-mode" class="theme-dot" style="cursor: pointer; width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%); border: 3px solid #ccc; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" title="Light Vibe">
+                            <span style="font-size: 16px;">☀️</span>
+                        </div>
+                        <div data-mode="blue" id="blue-mode" class="theme-dot" style="cursor: pointer; width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border: 3px solid #90caf9; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" title="Blue Vibe">
+                            <span style="font-size: 16px;">💙</span>
+                        </div>
+                        <div data-mode="green" id="green-mode" class="theme-dot" style="cursor: pointer; width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: 3px solid #81c784; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" title="Green Vibe">
+                            <span style="font-size: 16px;">🌿</span>
+                        </div>
+                        <div data-mode="purple" id="purple-mode" class="theme-dot" style="cursor: pointer; width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); border: 3px solid #ce93d8; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" title="Purple Vibe">
+                            <span style="font-size: 16px;">💜</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- ========================================= CONTACT SECTION :END ========================================= -->
         
@@ -599,6 +756,57 @@
                 if(window.gtag){ try{ window.gtag('js', new Date()); window.gtag('config','UA-181603289-1'); }catch(e){} }
                 else setTimeout(waitForUA, 500);
             })();
+        </script>
+
+        <!-- Blog Posts Dynamic Loader -->
+        <script>
+            // Load and render blog posts from JSON data
+            document.addEventListener('DOMContentLoaded', function(){
+                fetch('blog-data.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const container = document.getElementById('blog-posts-container');
+                        if(!container) return;
+
+                        // Clear container
+                        container.innerHTML = '';
+
+                        // Create blog post HTML for each item in JSON
+                        data.blogPosts.forEach(post => {
+                            // Format date (e.g., "Jun 15, 2023")
+                            const postDate = new Date(post.date);
+                            const formattedDate = postDate.toLocaleDateString('en-US', { 
+                                year: 'numeric', 
+                                month: 'short', 
+                                day: 'numeric' 
+                            });
+
+                            const postHTML = `
+                                <div class="col-sm-4" data-aos="fade">
+                                    <div class="Blog__post">
+                                        <div class="Blog__post-image">
+                                            <a href="${post.url}"><img loading="lazy" src="${post.image}" alt="${post.imageAlt}"></a>
+                                        </div>
+                                        <div class="Blog__post-caption">
+                                            <a href="${post.url}"><h4>${post.title}</h4></a>
+                                            <ul class="Blog__post-categories">
+                                                ${post.authors.map((author, index) => `<li>${author}${index < post.authors.length - 1 ? ',' : ''}</li>`).join('')}
+                                            </ul>
+                                            <p style="font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 10px;">${formattedDate}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            container.innerHTML += postHTML;
+                        });
+
+                        // Re-initialize AOS animations for dynamically added elements
+                        if(window.AOS){
+                            AOS.refresh();
+                        }
+                    })
+                    .catch(error => console.error('Error loading blog posts:', error));
+            });
         </script>
 
 </body>

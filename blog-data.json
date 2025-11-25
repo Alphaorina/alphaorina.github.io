@@ -1,0 +1,31 @@
+{
+  "blogPosts": [
+    {
+      "id": 1,
+      "title": "UiPath-Polymorphism|SharePoint Find Files",
+      "url": "https://dennisblog.super.site/uipath-polymorphismsharepoint-find-files",
+      "image": "assets/images/blog/polumorph.jpg",
+      "imageAlt": "UiPath-Polymorphism|SharePoint Find Files",
+      "date": "2023-06-15",
+      "authors": ["Dennis", "Orina"]
+    },
+    {
+      "id": 2,
+      "title": "How I automate my reading system",
+      "url": "https://dennisblog.super.site/how-i-automate-my-reading-system",
+      "image": "assets/images/blog/Kindle.jpg",
+      "imageAlt": "How I automate my reading system",
+      "date": "2024-02-28",
+      "authors": ["Dennis", "Orina"]
+    },
+    {
+      "id": 3,
+      "title": "Common Challenges with UiPath Selectors and How to Overcome Them",
+      "url": "https://dennisblog.super.site/common-challenges-with-uipath-selectors-and-how-to-overcome-them",
+      "image": "assets/images/blog/robot.jpg",
+      "imageAlt": "Common Challenges with UiPath Selectors and How to Overcome Them",
+      "date": "2024-09-12",
+      "authors": ["Dennis", "Orina"]
+    }
+  ]
+}
