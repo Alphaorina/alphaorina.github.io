@@ -2411,10 +2411,53 @@ footer .footer-socials a {
     justify-content: center;
   }
 
+
+/* ---- Footer layout adjustments (site-wide) ---- */
+/* Make the footer a full-width dark band with three columns matching index.html layout.
+   Left: contacts | Center: logo + year | Right: socials */
+footer {
+  background: #06091D; /* keep site theme */
+}
+/* Full-bleed wrapper for footer content so the dark band spans the viewport */
+.footer-band { background: #06091D; width: 100%; }
+.footer-band { background: transparent; width: 100%; position: relative; }
+.footer-band::before { content: ""; position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: #06091D; z-index: 0; }
+.footer-band .container { padding: 0; position: relative; z-index: 1; }
+footer .container { padding: 0; }
+footer .flex-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: transparent;
+  padding: 18px 0;
+}
+footer .flex-row .col-sm-4 { padding: 6px 18px; }
+/* ensure social icons stay above the band */
+footer .footer-socials,
+footer .footer-socials a { position: relative; z-index: 2; }
+footer .flex-row .col-sm-4 img { max-width: 140px; height: auto; display: block; margin: 0 auto 8px; }
+footer .flex-row .col-sm-4 .copyrights { color: #ffffff; margin-top: 6px; font-size: 12px; }
+footer .footer-socials { text-align: right; }
+footer .footer-socials a { color: #ffffff; margin-left: 8px; font-size: 20px; opacity: 0.95; }
+footer .footer-socials a:hover { color: #ffd700; opacity: 1; }
+
+@media all and (max-width: 991px) {
+  footer .footer-socials { text-align: center; margin-top: 8px; }
+}
+
+@media all and (max-width: 767px) {
+  footer .container .flex-row { display: block; }
+  footer .container .flex-row .col-sm-4 { width: 100%; display: block; text-align: center; padding: 12px 8px; }
+}
+
+/* End footer adjustments */
   footer .footer-contact i {
     margin-right: 5px;
   }
-}
+ 
 
 @media all and (max-width: 991px) {
   .offer-wrap {

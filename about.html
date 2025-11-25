@@ -6,6 +6,8 @@
 <meta charset="utf-8">
 <title>Swifty Corporate Bootstrap Template</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <meta name="description" content="" />
 <meta name="author" content="http://webthemez.com/" />
 <!-- css -->
@@ -79,24 +81,24 @@
             <div id="myCarousel" class="carousel slide">
               <!-- Carousel items -->
               <div class="carousel-inner">
-                <div class="item">
-                  <img src="img/service1.jpg" alt="">
+								<div class="item">
+									<img loading="lazy" src="img/service1.jpg" alt="">
                   <div class="carousel-caption">
                     <p>
                       Lorem ipsum dolor sit amet.
                     </p>
                   </div>
                 </div>
-                <div class="item">
-                  <img src="img/service2.jpg" alt="">
+								<div class="item">
+									<img loading="lazy" src="img/service2.jpg" alt="">
                   <div class="carousel-caption">
                     <p>
                       Blanditiis praesentium voluptatum
                     </p>
                   </div>
                 </div>
-                <div class="item active">
-                  <img src="img/service3.jpg" alt="">
+								<div class="item active">
+									<img loading="lazy" src="img/service3.jpg" alt="">
                   <div class="carousel-caption">
                     <p>
                       Blanditiis praesentium voluptatum
@@ -301,7 +303,7 @@
 									<!-- Team Member -->
 									<div class="team-member">
 										<!-- Image -->
-										<img class="img-responsive" src="img/team1.jpg" alt="">
+										<img class="img-responsive" loading="lazy" src="img/team1.jpg" alt="">
 										<!-- Name -->
 										<h4>Johne Doe</h4>
 										<span class="deg">Creative</span> 
@@ -311,7 +313,7 @@
 									<!-- Team Member -->
 									<div class="team-member">
 										<!-- Image -->
-										<img class="img-responsive" src="img/team2.jpg" alt="">
+										<img class="img-responsive" loading="lazy" src="img/team2.jpg" alt="">
 										<!-- Name -->
 										<h4>Jennifer</h4>
 										<span class="deg">Programmer</span> 
@@ -321,7 +323,7 @@
 									<!-- Team Member -->
 									<div class="team-member">
 										<!-- Image -->
-										<img class="img-responsive" src="img/team3.jpg" alt="">
+										<img class="img-responsive" loading="lazy" src="img/team3.jpg" alt="">
 										<!-- Name -->
 										<h4>Christean</h4>
 										<span class="deg">CEO</span> 
@@ -331,7 +333,7 @@
 									<!-- Team Member -->
 									<div class="team-member">
 										<!-- Image -->
-										<img class="img-responsive" src="img/team4.jpg" alt="">
+										<img class="img-responsive" loading="lazy" src="img/team4.jpg" alt="">
 										<!-- Name -->
 										<h4>Kerinele rase</h4>
 										<span class="deg">Manager</span> 
@@ -403,7 +405,7 @@
 				<div class="col-lg-6">
 					<div class="copyright">
 						<p>
-							<span>&copy; <script>document.write(new Date().getFullYear())</script> Swifty All right reserved. By </span><a href="http://webthemez.com/" Swifty="_blank">WebThemez</a>
+							<span>&copy; <span class="site-year"></span> Swifty All right reserved. By </span><a href="http://webthemez.com/" Swifty="_blank">WebThemez</a>
 						</p>
 					</div>
 				</div>
@@ -434,7 +436,8 @@
 <script src="js/portfolio/setting.js"></script>
 <script src="js/jquery.flexslider.js"></script>
 <script src="js/animate.js"></script>
-<script src="js/custom.js"></script>
+<script src="js/custom.js" defer></script>
+<script defer src="assets/js/site-utils.js"></script>
 </body>
 
 <!-- Mirrored from sathish2905.github.io/sample-website-templates/swifty-business-html5-website-template/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 31 Jan 2021 17:42:30 GMT -->

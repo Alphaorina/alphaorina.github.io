@@ -7,6 +7,8 @@
 <meta charset="utf-8">
 <title>Alpha Inc.</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <meta name="description" content="" />
 <meta name="author" content="http://webthemez.com/" />
  
@@ -68,24 +70,24 @@
             <div id="myCarousel" class="carousel slide">
               <!-- Carousel items -->
               <div class="carousel-inner">
-                <div class="active item">
-                  <img src="img/service1.jpg" alt="">
+								<div class="active item">
+									<img loading="lazy" src="img/service1.jpg" alt="">
                   <div class="carousel-caption">
                     <p>
                      Photography 
                     </p>
                   </div>
                 </div>
-                <div class="item">
-                  <img src="img/service2.jpg" alt="">
+								<div class="item">
+									<img loading="lazy" src="img/service2.jpg" alt="">
                   <div class="carousel-caption">
                     <p>
                       App development 
                     </p>
                   </div>
                 </div>
-                <div class="item">
-                  <img src="img/service3.jpg" alt="">
+								<div class="item">
+									<img loading="lazy" src="img/service3.jpg" alt="">
                   <div class="carousel-caption">
                     <p>
                       Design 
@@ -146,18 +148,18 @@
  
 
         <div class="row service-v1 margin-bottom-40">
-            <div class="col-md-4 md-margin-bottom-40">
-               <img class="img-responsive" src="img/service1.jpg" alt="">   
+				<div class="col-md-4 md-margin-bottom-40">
+					<img class="img-responsive" loading="lazy" src="img/service1.jpg" alt="">   
                 <h2>Web Development</h2>
                 <p>Don't hesistate,we got you covered!</p>        
             </div>
-            <div class="col-md-4">
-                <img class="img-responsive" src="img/service2.jpg" alt="">            
+			<div class="col-md-4">
+				<img class="img-responsive" loading="lazy" src="img/service2.jpg" alt="">            
                 <h2>Mobile Development</h2>
                 <p>All you mobile needs are taken into account</p>        
             </div>
-            <div class="col-md-4 md-margin-bottom-40">
-              <img class="img-responsive" src="img/service3.jpg" alt="">  
+						<div class="col-md-4 md-margin-bottom-40">
+							<img class="img-responsive" loading="lazy" src="img/service3.jpg" alt="">  
                 <h2>Responsive Design</h2>
                 <p>Yes!,you read that right, RESPONSIVE DESIGN</p>        
             </div>
@@ -222,7 +224,7 @@
 				<div class="col-lg-6">
 					<div class="copyright">
 						<p>
-							<span>&copy; <script>document.write(new Date().getFullYear())</script> Alpha Inc All rights reserved. By </span><a href="index.html" Swifty="_blank">Alpha Orina</a>
+							<span>&copy; <span class="site-year"></span> Alpha Inc All rights reserved. By </span><a href="index.html" Swifty="_blank">Alpha Orina</a>
 						</p>
 					</div>
 				</div>
@@ -253,7 +255,8 @@
 <script src="js/portfolio/setting.js"></script>
 <script src="js/jquery.flexslider.js"></script>
 <script src="js/animate.js"></script>
-<script src="js/custom.js"></script>
+<script src="js/custom.js" defer></script>
+<script defer src="assets/js/site-utils.js"></script>
 </body>
 
 

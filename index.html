@@ -28,6 +28,8 @@
     <meta http-equiv="Expires" content="-1">
     <title>Dennis Olondo Orina | Engineering Management| Business IT</title>
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway&amp;subset=latin-ext" rel="stylesheet">
    <!-- add icon link -->
 		<link rel = "icon" href ="assets/images/logo.png"
@@ -74,15 +76,7 @@
         }
 	</style>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-181603289-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-181603289-1');
-</script>
+<!-- Global site tag (gtag.js) - Google Analytics (UA deferred: loaded after interaction) -->
 
 
 
@@ -315,7 +309,7 @@
                 <div class="col-sm-4" data-aos="fade">
                     <div class="Blog__post">
                         <div class="Blog__post-image">
-                            <a href="https://dennisblog.super.site/uipath-polymorphismsharepoint-find-files"><img src="assets/images/blog/polumorph.jpg" alt="UiPath-Polymorphism|SharePoint Find Files"></a>
+                            <a href="https://dennisblog.super.site/uipath-polymorphismsharepoint-find-files"><img loading="lazy" src="assets/images/blog/polumorph.jpg" alt="UiPath-Polymorphism|SharePoint Find Files"></a>
                         </div>
                         <div class="Blog__post-caption">
                             <a href="https://dennisblog.super.site/uipath-polymorphismsharepoint-find-files"><h4>UiPath-Polymorphism|SharePoint Find Files</h4></a>
@@ -331,7 +325,7 @@
                     <div class="col-sm-4" data-aos="fade">
                         <div class="Blog__post">
                             <div class="Blog__post-image">
-                                <a href="https://dennisblog.super.site/how-i-automate-my-reading-system"><img src="assets/images/blog/Kindle.jpg" alt="How I automate my reading system"></a>
+                                <a href="https://dennisblog.super.site/how-i-automate-my-reading-system"><img loading="lazy" src="assets/images/blog/Kindle.jpg" alt="How I automate my reading system"></a>
                             </div>
                             <div class="Blog__post-caption">
                                 <a href="https://dennisblog.super.site/how-i-automate-my-reading-system"><h4>How I automate my reading system</h4></a>
@@ -347,7 +341,7 @@
                 <div class="col-sm-4" data-aos="fade">
                     <div class="Blog__post">
                         <div class="Blog__post-image">
-                            <a href="https://dennisblog.super.site/common-challenges-with-uipath-selectors-and-how-to-overcome-them"><img src="assets/images/blog/robot.jpg" alt="Common Challenges with UiPath Selectors and How to Overcome Them"></a>
+                            <a href="https://dennisblog.super.site/common-challenges-with-uipath-selectors-and-how-to-overcome-them"><img loading="lazy" src="assets/images/blog/robot.jpg" alt="Common Challenges with UiPath Selectors and How to Overcome Them"></a>
                         </div>
                         <div class="Blog__post-caption">
                             <a href="https://dennisblog.super.site/common-challenges-with-uipath-selectors-and-how-to-overcome-them"><h4>Common Challenges with UiPath Selectors and How to Overcome Them</h4></a>
@@ -505,7 +499,7 @@
                     </div>
                     <div class="col-sm-4">
                         <img src="assets/images/logo.png" alt="Olondo">
-                        <div class="copyrights">© <script>document.write(new Date().getFullYear())</script> Alpha Orina - ALL RIGHTS RESERVED😉</div>
+                        <div class="copyrights">© <span class="site-year"></span> Alpha Orina - ALL RIGHTS RESERVED😉</div>
                     </div>
                     <div class="col-sm-4">
                         <div class="footer-socials">
@@ -533,30 +527,42 @@
         window.Config.preloader.duration = 1500;
     </script>
     <!-- Application scripts -->
-    <script src="assets/js/app-20171015.js"></script>
+    <script src="assets/js/app-20171015.js" defer></script>
 	
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
    
     <!-- Particles.js module file -->
-    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/particles.js" defer></script>
+    <script defer src="assets/js/site-utils.js"></script>
 		
     <!-- Particles.js initiation -->
     <script>
         particlesJS.load('particles-js', 'settings/particles-config.json');
     </script>
 
-<script>
+        <!-- Non-critical third-party scripts: loaded after interaction or idle to avoid blocking -->
+        <script>
+            window.__thirdPartyScripts = window.__thirdPartyScripts || [];
+            // SimpleAnalytics (analytics)
+            window.__thirdPartyScripts.push({ src: 'https://scripts.simpleanalyticscdn.com/latest.js', async: true, defer: true });
+            // Ads (Google AdSense)
+            window.__thirdPartyScripts.push({ src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8590001306454137', async: true, crossorigin: 'anonymous' });
+            // LinkedIn badges
+            window.__thirdPartyScripts.push({ src: 'https://platform.linkedin.com/badges/js/profile.js', async: true, defer: true });
+            // Universal Analytics (legacy UA) - load after interaction/idle (keeps GA4 in head)
+            window.__thirdPartyScripts.push({ src: 'https://www.googletagmanager.com/gtag/js?id=UA-181603289-1', async: true });
+        </script>
+        <script defer src="assets/js/third-party-loader.js"></script>
+        <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""/></noscript>
+        <script>
+            // call legacy UA config after loader inserts gtag script
+            (function waitForUA(){
+                if(window.gtag){ try{ window.gtag('js', new Date()); window.gtag('config','UA-181603289-1'); }catch(e){} }
+                else setTimeout(waitForUA, 500);
+            })();
+        </script>
 
-
-		<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""/></noscript>
-				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8590001306454137"
-     crossorigin="anonymous"></script>
-		</body>
-
-<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-		</body>
-
+</body>
 
 </html>

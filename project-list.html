@@ -23,22 +23,14 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169252499-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-169252499-1');
-</script>
-
-
-</script>
-</head>
-
-<body>
-    <div id="tej" class="blog-post-page">
+        <!-- Global site tag (gtag.js) - Google Analytics (UA deferred) -->
+<head>
+<meta charset="utf-8">
+<title>Alpha Orina</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <!-- Preloader-->
         <div class="Preloader" id="Preloader"></div>
         <!-- /Preloader-->
@@ -77,7 +69,7 @@
                     </div>
                     <div class="col-sm-4">
                         <img src="assets/images/logo.png" alt="Tej">
-                        <div class="copyrights">© <script>document.write(new Date().getFullYear())</script> Alpha Orina -ALL RIGHTS,WRONGS AND IN-BETWEENS RESERVED😉</div>
+                        <div class="copyrights">© <span class="site-year"></span> Alpha Orina -ALL RIGHTS,WRONGS AND IN-BETWEENS RESERVED😉</div>
                     </div>
                     <div class="col-sm-4">
                         <div class="footer-socials">
@@ -100,7 +92,8 @@
     </script>
 
     <!-- Application scripts -->
-    <script src="assets/js/app-20171015.js"></script>
+    <script src="assets/js/app-20171015.js" defer></script>
+    <script defer src="assets/js/site-utils.js"></script>
 </body>
 
 

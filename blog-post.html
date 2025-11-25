@@ -11,6 +11,8 @@ window.scrollTo(0, 0);
 window.scroll({ top: 0, left: 0, behavior: 'smooth' });
 
     <meta name="keywords" content="African In Hungary,Stipendium Hungaricum Scholar,Dennis Olondo Orina,International student, AKESH, Association of Kenyan students In Hungary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<meta name="Author" content="Dennis Olondo Orina">
     <meta name="description" content="Dennis Olondo Orina is a Kenyan scholar and Innovation Specialist studying at Óbuda University, focused on RPA, AI, Document Understanding, and Microsoft Power Platform, and interested in technology, management, and automation.">
     <meta charset="utf-8">
@@ -34,16 +36,7 @@ window.scroll({ top: 0, left: 0, behavior: 'smooth' });
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-181603289-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-181603289-1');
-</script>
+        <!-- Global site tag (gtag.js) - Google Analytics (UA deferred) -->
 
 
     <style>
@@ -590,7 +583,7 @@ This project is also is the first step for TheARTer for Diversity movement which
                     </div>
                     <div class="col-sm-4">
                         <img src="assets/images/logo.png" alt="Tej">
-                        <div class="copyrights">© <script>document.write(new Date().getFullYear())</script> AlphaOrina - ALL RIGHTS,WRONGS AND IN-BETWEENS RESERVED😉</div>
+                        <div class="copyrights">© <span class="site-year"></span> AlphaOrina - ALL RIGHTS,WRONGS AND IN-BETWEENS RESERVED😉</div>
                     </div>
                     <div class="col-sm-4">
                         <div class="footer-socials">
@@ -621,15 +614,22 @@ This project is also is the first step for TheARTer for Diversity movement which
     </script>
 
     <!-- Application scripts -->
-    <script src="assets/js/app-20171015.js"></script>
-    <rssapp-wall id="0zsB3F68Lwf32Zjv"></rssapp-wall><script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8590001306454137"
-     crossorigin="anonymous"></script>
+        <script src="assets/js/app-20171015.js" defer></script>
+        <rssapp-wall id="0zsB3F68Lwf32Zjv"></rssapp-wall>
+        <script>
+            window.__thirdPartyScripts = window.__thirdPartyScripts || [];
+            window.__thirdPartyScripts.push({ src: 'https://widget.rss.app/v1/wall.js', async: true});
+            window.__thirdPartyScripts.push({ src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8590001306454137', async: true, crossorigin: 'anonymous'});
+        </script>
+        <script defer src="assets/js/third-party-loader.js"></script>
 
     <!-- Particles.js module file -->
+
     <script src="assets/js/particles.min.js"></script>
 	<!----Highlights the texts on hover--->
 	<script src="highlight.js"></script>
+
+    <script defer src="assets/js/site-utils.js"></script>
 
     <!-- Particles.js initiation -->
     <script>

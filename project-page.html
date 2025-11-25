@@ -11,6 +11,8 @@
     <meta http-equiv="Expires" content="-1">
     <title>Alpha Orina</title>
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway&amp;subset=latin-ext" rel="stylesheet">
     <!-- CSS Libraries -->
     <link href="assets/css/libs.css" rel="stylesheet">
@@ -23,18 +25,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169252499-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-169252499-1');
-</script>
-
-
-</script>
+        <!-- Global site tag (gtag.js) - Google Analytics (UA deferred) -->
 </head>
 
 <body>
@@ -56,7 +48,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="project-image">
-                                <img src="assets/images/portfolio/thumbs/portfolio5.jpg" alt="Project Image">
+                                <img loading="lazy" src="assets/images/portfolio/thumbs/portfolio5.jpg" alt="Project Image">
                             </div>
                         </div>
                     </div>
@@ -102,7 +94,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="project-image">
-                                <img src="assets/images/portfolio/thumbs/portfolio5.jpg" alt="Project Image">
+                                <img loading="lazy" src="assets/images/portfolio/thumbs/portfolio5.jpg" alt="Project Image">
                             </div>
                         </div>
                     </div>
@@ -134,6 +126,18 @@
                                 <div class="col-sm-8 col-sm-offset-1">
                                     <div class="project-description">
                                         <p>This is my recent power Bi report for Global sales</p>
+            <script>
+            window.__thirdPartyScripts = window.__thirdPartyScripts || [];
+            window.__thirdPartyScripts.push({ src: 'https://scripts.simpleanalyticscdn.com/latest.js', async: true });
+            window.__thirdPartyScripts.push({ src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8590001306454137', async: true, crossorigin: 'anonymous' });
+            window.__thirdPartyScripts.push({ src: 'https://platform.linkedin.com/badges/js/profile.js', async: true });
+            window.__thirdPartyScripts.push({ src: 'https://www.googletagmanager.com/gtag/js?id=UA-169252499-1', async: true });
+            </script>
+            <script defer src="assets/js/third-party-loader.js"></script>
+            <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""/></noscript>
+            <script>
+            (function waitForUA(){ if(window.gtag){ try{ window.gtag('js', new Date()); window.gtag('config','UA-169252499-1'); }catch(e){} } else setTimeout(waitForUA,500); })();
+            </script>
                                     </div>
                                     
                                 
@@ -146,7 +150,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="project-image">
-                                <img src="assets/images/portfolio/thumbs/portfolio7.jpg" alt="Project Image">
+                                <img loading="lazy" src="assets/images/portfolio/thumbs/portfolio7.jpg" alt="Project Image">
                             </div>
                         </div>
                     </div>
@@ -196,6 +200,7 @@
                                 </section>
         <!-- Page footer start -->
         <footer>
+            <div class="footer-band">
             <div class="container">
                 <div class="flex-row">
                     <div class="col-sm-4">
@@ -206,7 +211,7 @@
                     </div>
                     <div class="col-sm-4">
                         <img src="assets/images/logo.png" alt="Tej">
-                        <div class="copyrights">© <script>document.write(new Date().getFullYear())</script> Alpha Orina - ALL RIGHTS,WRONGS AND IN-BETWEENS RESERVED😉</div>
+                        <div class="copyrights">© <span class="site-year"></span> Alpha Orina - ALL RIGHTS,WRONGS AND IN-BETWEENS RESERVED😉</div>
                     </div>
                     <div class="col-sm-4">
                         <div class="footer-socials">
@@ -219,6 +224,7 @@
                     </div>
                 </div>
             </div>
+            </div>
         </footer>
         <!-- Page footer end -->
     </div>
@@ -229,7 +235,8 @@
     </script>
 
     <!-- Application scripts -->
-    <script src="assets/js/app-20171015.js"></script>
+    <script src="assets/js/app-20171015.js" defer></script>
+    <script defer src="assets/js/site-utils.js"></script>
 </body>
 
 
